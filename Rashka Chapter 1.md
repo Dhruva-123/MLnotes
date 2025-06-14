@@ -19,3 +19,10 @@ there are two main subcategories of supervised learning:
 	         Here, say we have a feature 'Y' that is related to the target variable 'X'. Here is a simple demonstration of the regression process.
 	         ![[Pasted image 20250614115428.png]]
 	         Our intention here is to draw a line such that the squared distances from the points to the line is is minimal. Then, we will base the relationship of the variables Y and X on this line and make predictions based on that line that we created based on the training data.
+
+    Reinforcement Learning:
+        Reinforcement learning, although not a branch of supervised learning, follows the general path of the supervised learning map. Here, an agent is deployed into the environment, whose actions trigger a reward or punishment function that scores the agent based on it's performance and based on the results obtained. 
+
+
+Unsupervised Learning:
+    Here, the general idea is to explore a given unknown or undefined data and  bring out insights from the data given without a reward system or prior labeling.
