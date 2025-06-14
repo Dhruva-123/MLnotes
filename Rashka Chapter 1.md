@@ -26,3 +26,9 @@ there are two main subcategories of supervised learning:
 
 Unsupervised Learning:
     Here, the general idea is to explore a given unknown or undefined data and  bring out insights from the data given without a reward system or prior labeling.
+     There are two fundamental use cases for unsupervised learning in the ML pipeline:
+        1. Finding subgroups with clustering:
+            Say we give a pile of data. This unsupervised learning technique groups these data points and classifies them based on their relationship with each other based on the given metrics we measure against. This is called unsupervised classification. In the following diagram, we will see different groups forming clusters when we consider two parameters x1 and x2.
+             ![[Pasted image 20250614124803.png]]
+         2. Dimensionality Reduction For Data Compression:
+            This method is a commonly used method in feature preprocessing to remove noise from the data, and compress the data to a lower dimensional subspace. This makes ML computationally feasable. This is a general technique that we use preprocessing of data before feeding it to any ML algorithm.
