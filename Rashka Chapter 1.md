@@ -32,3 +32,8 @@ Unsupervised Learning:
              ![[Pasted image 20250614124803.png]]
          2. Dimensionality Reduction For Data Compression:
             This method is a commonly used method in feature preprocessing to remove noise from the data, and compress the data to a lower dimensional subspace. This makes ML computationally feasable. This is a general technique that we use preprocessing of data before feeding it to any ML algorithm.
+
+
+
+Some terms to bare in mind:
+    Signal means usefulness. There is a signal to noise ratio, which means useful to useless ratio
