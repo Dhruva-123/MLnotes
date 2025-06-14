@@ -36,4 +36,4 @@ Unsupervised Learning:
 
 
 Some terms to bare in mind:
-    Signal means usefulness. There is a signal to noise ratio, which means useful to useless ratio
+    Signal means usefulness. There is a signal to noise ratio, which means useful to useless ratio.
