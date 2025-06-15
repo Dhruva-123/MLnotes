@@ -40,3 +40,5 @@ This model is only usable if the two classes that we are trying to seperate are 
 The general concept of the model is given in the following diagram:
 
 ![[Pasted image 20250614151908.png]]
+
+
