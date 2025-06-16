@@ -41,8 +41,32 @@ The general concept of the model is given in the following diagram:
 
 ![[Pasted image 20250614151908.png]]
 
-Adaline Algorithm:
+Adaline Algorithm: (Short for adaptive linear neuron)
 
+Adaline is very similar to perceptron. But, Adaline has a fundamental property that perceptron doesn't have. In perceptron, we calculate the change with the help of error, and that error is calculated by the prediction and real answer difference. This usually means only 4 cases, 
 
+-1 - (- 1)   -> the answer is -1 and the prediction is -1
+ 1 - (1)   -> the answer is 1 and the prediction is 1
+-1 - (1)   -> the answer is -1 and the prediction is 1
+ 1 - (- 1)   -> the answer is 1 and the prediction is -1
 
+Although this will mean convergence over time, this can be a bit lacking because, the error doesn't express just HOW wrong the prediction is. 
 
+Adaline fixes that issue, by replacing the error calculation mechanism and also the weight balance mechanisim. First, the error is calculated by the actual output and the answer differences. This means, we will know how wrong the model is for now.
+theoritical showcase:
+Perceptron  -> $y - \Phi(z)$ = error
+Adaline       -> $y - z$ = error 
+
+secondly, the weight balance mechanism goes via gradient descent. to understand gradient descent, lets see what a cost function is:
+
+Cost Function = $J(\mathbf{w}) = \frac{1}{2} \sum_{i} \left( y^{(i)} - \phi(z^{(i)}) \right)^2$ 
+
+Note that here $\phi(z)$ means the activation function. Not to confuse with the prediction value $\Phi(z)$
+. Two totally different things. For adaline however, the activation function $\phi(x) = x$
+. It's an identity function, but we can change that however we want depending upon the model we are running.
+
+when we say gradient descent, we mean, we are going to calculate the gradient of the cost function wrt the weights, then, we will find the particular weights vector for which the cost function is the least over many iterations. each iteration takes us one step closer to the perfect vector point, but, at the risk of over fitting (means getting too used to the training dataset and being worthless to the real world test datasets). So, keep the iterations in check. When mathematically calculating the gradient of the cost function,  we find that;
+
+    $\nabla J(\mathbf{w}) = - X^\top (\mathbf{y} - \mathbf{z})$
+
+We find that the gradient is $X^{T}$  * (error) and the error here is the adaline error and not the perceptron error. Adaline is coded up and attached to this folder.
