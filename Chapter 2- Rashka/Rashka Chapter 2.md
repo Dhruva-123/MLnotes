@@ -41,4 +41,8 @@ The general concept of the model is given in the following diagram:
 
 ![[Pasted image 20250614151908.png]]
 
+Adaline Algorithm:
+
+
+
 
