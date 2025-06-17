@@ -41,8 +41,6 @@ class Adaline: ###This Adaline is Batch Gradient Descent Algo. There are a lot m
         plt.xlabel("No.of iterations")
         plt.ylabel("Cost per iteration")
         plt.show()
-     
-
 
 
         
