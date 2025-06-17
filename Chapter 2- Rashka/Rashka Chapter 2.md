@@ -90,4 +90,8 @@ Our intention is to make the mean of the new feature to be zero and the standard
 
 This makes convergence and mathematical calculations easier. Note that when we are using a standardized model, the input features for testing must also be standardized when we want to test them.
 
+Now, we will learn something called Stochastic Gradient Descent:
+
+It's the exact same as adaline, but, in adaline, we send all of the input vectors, X, in at once. This could cause inefficient fitting. That's why, we use SGD. Here, we send each input one by one and that helps the model converge faster. its called adalineSGD
+
 
