@@ -70,3 +70,24 @@ when we say gradient descent, we mean, we are going to calculate the gradient of
     $\nabla J(\mathbf{w}) = - X^\top (\mathbf{y} - \mathbf{z})$
 
 We find that the gradient is $X^{T}$  * (error) and the error here is the adaline error and not the perceptron error. Adaline is coded up and attached to this folder.
+
+
+**Improving Gradient Descent using feature scaling:**
+
+when we are giving the model real input vectors X, the whole calculation takes time and also causes slow convergence. Therefore, for different models, we follow different principles to make the input vectors X more optimised to converge faster. One of the most standard ways of doing that is by doing "Standardization" of features for gradient descent specific models.
+
+
+Standardization:
+
+Standardization of a feature in X, say $x_i$ goes as follows:
+
+$x^{'}_i$  = ($x_i - \mu_i$)/$\sigma_i$ 
+
+$\mu_i$ = mean of the features
+$\sigma_i$ = standard deviation of the features
+
+Our intention is to make the mean of the new feature to be zero and the standard deviation of the new feature to be 1.
+
+This makes convergence and mathematical calculations easier. Note that when we are using a standardized model, the input features for testing must also be standardized when we want to test them.
+
+
