@@ -6,13 +6,15 @@ class LogisticRegression:
         self.n_iter = n_iter
     
     def fit(self, X, Y):
+        rgen = np.random.RandomState(self.random_state)
+        self.w_ = rgen.normal(loc = 0.0, scale = 0.01 , size = 1 + X.shape[1])
         cost_ = []
         for _ in range(self.n_iter):
             output = self.activation(self.net_input(X))
-            errors = 1 - output
+            errors = Y - output
             self.w_[1:] += X.T.dot(errors)*self.eta
             self.w_[0] += self.eta*errors.sum()
-            cost = -Y.dot(np.log(output)) - (1 - Y).dot(np.log(1 - output))
+            cost = cost = -Y.dot(np.log(output.clip(1e-10, 1 - 1e-10))) - (1 - Y).dot(np.log((1 - output).clip(1e-10, 1 - 1e-10)))
             cost_.append(cost)
         return self
     
