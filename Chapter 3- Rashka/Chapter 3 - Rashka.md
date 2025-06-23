@@ -57,3 +57,13 @@ Now, Here is the idea of what a logistic regression is:
    ![[Pasted image 20250620161322.png]]
 10. In the case of adaline, we used the activation function $\Phi(z)$ to be the indentity function. Here, we will be using the above mentioned sigmoid function as the activation function instead.
 11. Once the net_input passes through the sigmoid function, we will be getting a value between 0 and 1. we will then classify the give data based on the output, wether the resulted output from the sigmoid function is greater than 0.5 or not would be the metric. If the output is greater than 0.5, then we declare the example to be of the class X = 1, otherwise, X = 0 is the class that example goes under.
+
+The same thing can be done in sklearn from the following code example:
+This code is for multiple classification:
+
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression(C = 100.0 , random_state = 1, solver = "lbfgs" , multiclass = "ovr") ### Multiclass = ovr because oVr is a technique for multiple classifications using the same model. Now, There are other methods like multinomial.###
+lr.fit(X_train_std, Y_train)
+
+
+That's it. Limited Memory Broyden–Fletcher–Goldfarb–Shanno (LBFGS) is a memory efficient method for the multinomial case, that's why we are using it here.
