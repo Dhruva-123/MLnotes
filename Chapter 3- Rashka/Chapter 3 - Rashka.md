@@ -76,3 +76,13 @@ Multinomial logisitic regression depends on several components. we have softmax 
 3. $\mathcal{L} = - \sum_{i=1}^{N} \sum_{k=1}^{K} y_{i,k} \cdot \log(\hat{y}_{i,k})$
    Where i stands for the $i^{th}$ example and k stands for the $k^{th}$ feature. 
 4. we find the gradient to this loss function wrt weights and we get the error fixes or $\Delta W$ for each iteration.
+
+Overfitting is a term used to describe a model that performs well on training data but fails to work well for test data. This is due to too many parameters, too many epochs, etc
+
+Similarly, underfitting is too little epochs or parameters for the model to truly grasp the different nuances in the data.
+
+NOTE:
+"High variance" is proportional to over fitting and "High bias" is proportional to underfitting.
+**Bias** is the error introduced by approximating a real-world problem, which may be complex, by a **simplified model**
+**Variance** is the error introduced by the model’s **sensitivity to small fluctuations** in the training data.
+
