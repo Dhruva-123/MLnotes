@@ -86,3 +86,19 @@ NOTE:
 **Bias** is the error introduced by approximating a real-world problem, which may be complex, by a **simplified model**
 **Variance** is the error introduced by the model’s **sensitivity to small fluctuations** in the training data.
 
+
+**REGULARIZATION:**
+
+This is a little tweak that we do to the loss function that makes sure that we don't overfit easily. Regularization is the concept of adding a term that pulls the loss or the gradient based change in weights away from the actual change. It is like friction, when the force (error) is strong enough to bypass friction (regularization term), then, the object moves (The update gets made). There are a lot of different regularization terms in the market but for now, we will be talking about L1 and L2 regularization terms.
+
+**L2 Regularization term:**
+
+
+$\frac{\lambda}{2} \|\mathbf{w}\|^2 = \frac{\lambda}{2} \sum w_i^2$
+
+That is the formula for L2 regularization. 
+$\frac{\lambda}{2} \sum w_i^2$ is the term that we are adding to the loss function in each of the models. However, the loss function is derived wrt W to be added to W in each iteration. so, The derived term would simply be $\lambda W$ . We usually have lambda to be a very small value, just like eta, cuz think, it makes sense.
+
+**L1 Regularization term:**
+
+$\lambda\sum W$ is the regularization term added to the loss function. This is a bit more mathematically nuanced, so, L2 term is usually used. That's why we are only going to cover L2 term for now.
