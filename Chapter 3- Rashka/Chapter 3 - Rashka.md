@@ -67,3 +67,12 @@ lr.fit(X_train_std, Y_train)
 
 
 That's it. Limited Memory Broyden–Fletcher–Goldfarb–Shanno (LBFGS) is a memory efficient method for the multinomial case, that's why we are using it here.
+
+From our own implementation of multinomial logisitic regression, we have found several things:
+
+Multinomial logisitic regression depends on several components. we have softmax function, one_hot function. What we are essentially doing there is this:
+1. Take the input data and train on it. Once trained, we then try to predict the output via heavy probability. This is where to softmax function comes in. Softmax function gives a probability distribution for a given net_input z. That probability distribution tells us the chances of a particular example being one of n classes. we then predict the class that has the highest probability. This probability formation is done fairly simply with softmax function. 
+2. For error calculations and weight updates, we use the gradient of the loss function of the multinomial case. the loss function of the multinomial case looks something like this:
+3. $\mathcal{L} = - \sum_{i=1}^{N} \sum_{k=1}^{K} y_{i,k} \cdot \log(\hat{y}_{i,k})$
+   Where i stands for the $i^{th}$ example and k stands for the $k^{th}$ feature. 
+4. we find the gradient to this loss function wrt weights and we get the error fixes or $\Delta W$ for each iteration.
