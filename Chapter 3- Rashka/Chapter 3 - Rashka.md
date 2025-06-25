@@ -130,7 +130,7 @@ Slack Variables:
 $$
 \min_{\mathbf{w}, b, \boldsymbol{\xi}} \quad \frac{1}{2} \|\mathbf{w}\|^2 + C \sum_{i=1}^{n} \xi_i
 $$
-The above equation is that we are trying to introduce into the weights are error. The new C and and $\xi$ are the slack variables here.
+The above equation is that we are trying to introduce into the weights are error. The new C and and $\xi$ are the slack variables here. Note that all $\xi_i$ are greater than 0. C is called the panelty parameter.
 
 
 
