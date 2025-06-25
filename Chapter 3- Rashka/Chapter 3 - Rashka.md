@@ -102,3 +102,42 @@ $\frac{\lambda}{2} \sum w_i^2$ is the term that we are adding to the loss functi
 **L1 Regularization term:**
 
 $\lambda\sum W$ is the regularization term added to the loss function. This is a bit more mathematically nuanced, so, L2 term is usually used. That's why we are only going to cover L2 term for now.
+
+
+**SUPPORT VECTOR MACHINES (SVM):**
+
+Support vector machines is a method to optimize the creation and adjustment of a hyperplane that seperates two different classes of objects. Think of this as an upgrade to perceptron.
+
+say we have two different classes and they are labeled -1 and 1 respectively. How whole idea with the perceptron is $W^TX + B$ > 0 , then class 1, or < 0 , class -1. But here, we will create two margins, $W^TX + B = 1$ , $W^TX + B = -1$ . These two margins show exactly where the class boundary of class 1 and class -1 are. If the object is between these margins, we consider the object as unknown and adjust the hyperplane such that the object is correctly classified and not inside the margin. ofc,  we can't do this for every class, therefore, we only do it to linearly seperable classes.
+
+let $\|\mathbf{w}\|$  be the sum of squares of every $w_i$ inside w_. we find that the margin is given by;
+
+margin = 2/$\|\mathbf{w}\|$ . Our whole intention of this support vector machine math is to maximize the margin. Because geometrically, the greater the margin, the better the classification. Therefore, we try to minimize the $\|\mathbf{w}\|$/2 with gradient descent. Let me show you how this goes;
+
+say for example 1;
+$W_0$ + $W^TX$ > 1, This means that the object that we are checking rn is well above the margin and correctly classified. That means, we dont need to change the hyperplane at all.
+
+say for example 2;
+0 < $W_0$ + $W^TX$ < 1, This means that, even thought the object is correctly classified (above zero), the object is inside the margin. Therefore, we have error and we will change the hyperplane.
+
+say for example 3:
+
+$W_0$ + $W^TX$  < 0, Here, the object is clearly missclassified. That means, we have to adjust the hyperplane in both directional and orientation ways.
+
+This is good in theory, however, when we are actually practicing real world ML, These strict margins lead to a lot of missclassifications and margin errors. Just like with regularization, we will try to introduce a new variable that tells us how wrong we are, not just if we are right or wrong. This allows us to make changes that are relative to the degree of mistake that we are making. These variables are called slack variables.
+
+Slack Variables:
+$$
+\min_{\mathbf{w}, b, \boldsymbol{\xi}} \quad \frac{1}{2} \|\mathbf{w}\|^2 + C \sum_{i=1}^{n} \xi_i
+$$
+The above equation is that we are trying to introduce into the weights are error. The new C and and $\xi$ are the slack variables here.
+
+
+
+
+
+
+
+
+
+
