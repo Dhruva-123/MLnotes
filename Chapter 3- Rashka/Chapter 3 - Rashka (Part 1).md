@@ -132,6 +132,24 @@ $$
 $$
 The above equation is that we are trying to introduce into the weights are error. The new C and and $\xi$ are the slack variables here. Note that all $\xi_i$ are greater than 0. C is called the panelty parameter.
 
+**KERNEL METHOD:**
+Say your model is linear. it can only seperate linearly seperable classes. But you are given a class such that it is impossible to seperate that linearly (say circles). What we are going to do is, we are going to scale that input vector into a higher dimensional plane such that we will be able to seperate it linearly. This is called projection.
+**Here is how projection goes:**
+You take an input vector, X , pass it through $\phi()$ and the resulting vector is a vector of higher dimensions and is ideally linearly seperable. and then we take the test and train data straight into the same function and get our results. this sounds easy on paper. But finding that $\phi(x)$ is close to impossible with computers. You have to sit and find it manually. But for SVMs, there is another option. 
+$$
+\min_{\mathbf{w}, b, \boldsymbol{\xi}} \quad \frac{1}{2} \|\mathbf{w}\|^2 + C \sum_{i=1}^{n} \xi_i
+$$
+This is the SVM core logic. However, this can also be written in another form.
+$$
+\begin{aligned}
+\max_{\boldsymbol{\alpha}} \quad & \sum_{i=1}^{n} \alpha_i 
+- \frac{1}{2} \sum_{i=1}^{n} \sum_{j=1}^{n} \alpha_i \alpha_j y_i y_j K(x_i, x_j) \\
+\text{subject to} \quad & 0 \leq \alpha_i \leq C, \quad \forall i = 1, \dots, n \\
+& \sum_{i=1}^{n} \alpha_i y_i = 0
+\end{aligned}
+$$
+This form is called the dual form of the SVM model. Here, $\alpha_i$ are the lagrangian multipliers. and the function $K(x_i, x_j)$ is called the kernel. There are a few universal kernels that work for almost any type of data. We use those kernels to project and then later predict our answer without ever finding out that $\phi(x)$ . This is also called kernel trick because it is a trick to avoid calculating the transformation function. With this, we will arrive at our solution pretty easily. The accuracy of this is pretty insane. The most famous of kernels is called RBF or gaussian kernel. With the correct gaussian kerenel, we can reach an accuracy of 99.9% on the cancer dataset. That's how powerful they are.
+
 
 
 
