@@ -35,3 +35,5 @@ A few more points to note:
 1. For keeping things in the finite split zone, we define a variable called the max_depth. Our intention is to make sure that no matter what, that tree cannot go bigger than the max depth at any branch. That is our idea. Max_depth is a hyperparameter that we tweak for efficiency's sake. 
 2. We also maintain a min_sample variable. This makes sure that we don't split a given node further even if the sample size is less than a particular value. This is edge case management.
 3. This might be the most important point here, If information gain is zero, then,  we are splitting a node that is already pure. We don't want that.
+
+**Decision Trees for Regression:**
