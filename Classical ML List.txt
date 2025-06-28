@@ -1,0 +1,127 @@
+1. Linear Models (Foundational)
+These are your building blocks for almost every other model.
+
+✅ Perceptron
+
+✅ Adaline (SGD for regression)
+
+✅ Linear Regression
+
+✅ Logistic Regression (Binary + Multiclass softmax)
+
+✅ Ridge Regression
+
+✅ Lasso Regression
+
+✅ Elastic Net
+
+✅ Polynomial Regression
+
+🔁 Learn: cost functions, gradient descent, closed-form vs iterative, regularization tradeoffs
+
+2. Probabilistic Models
+You’ll learn to model uncertainty, distributions, and generative processes.
+
+✅ Naive Bayes (Gaussian, Bernoulli, Multinomial)
+
+✅ Gaussian Discriminant Analysis (GDA)
+
+✅ Bayesian Linear Regression
+
+✅ MAP vs MLE estimation
+
+✅ Log-Likelihoods & prior/posterior math
+
+🔁 Learn: likelihoods, conjugate priors, generative vs discriminative debate
+
+3. Tree-Based Models
+You already started here. Now you go full-depth.
+
+✅ Decision Trees (ID3, CART – Gini vs Entropy)
+
+✅ Random Forests
+
+✅ Extra Trees (Extremely Randomized Trees)
+
+✅ Gradient Boosting (from scratch)
+
+✅ XGBoost / LightGBM (black-box level + intuition)
+
+🔁 Learn: bias–variance control, overfitting, feature bagging, ensemble stacking
+
+4. Kernel and Margin-Based Models
+SVMs are the crown jewels of classical ML. Master their math.
+
+✅ Hard-margin SVM
+
+✅ Soft-margin SVM (hinge loss + slack vars)
+
+✅ Dual SVM (Lagrangian, KKT conditions)
+
+✅ Kernel SVM (RBF, polynomial, custom)
+
+✅ SMO (Sequential Minimal Optimization)
+
+✅ Kernel Ridge Regression
+
+🔁 Learn: duality, QP solvers, kernel trick, margin maximization
+
+5. Instance-Based Methods
+Fast, lazy models. Great sanity checks.
+
+✅ K-Nearest Neighbors (KNN)
+
+✅ Radius Neighbors
+
+✅ Distance metrics: Euclidean, Manhattan, Mahalanobis, Cosine
+
+🔁 Learn: curse of dimensionality, instance efficiency, distance geometry
+
+6. Unsupervised Models
+Clustering and dimensionality reduction. These are powerful for EDA and pipeline prep.
+
+✅ K-Means Clustering
+
+✅ Gaussian Mixture Models (GMM)
+
+✅ Hierarchical Clustering (Agglomerative)
+
+✅ DBSCAN
+
+✅ PCA
+
+✅ LDA (as dimensionality reducer)
+
+✅ t-SNE / UMAP (black-box intuition)
+
+🔁 Learn: eigenvectors, latent space geometry, density modeling
+
+7. Model Selection, Evaluation & Tuning
+This is glue code mastery — the infrastructure pros use.
+
+✅ StratifiedKFold, GroupKFold
+
+✅ Cross-validation strategies
+
+✅ Grid Search / Random Search / Bayesian optimization
+
+✅ Learning curves, Validation curves
+
+✅ Bias–Variance Decomposition
+
+✅ Confusion matrix, ROC/AUC, Log Loss, F1-score
+
+🔁 Learn: when models fail, how to tune them, and how to compare them fairly
+
+8. Bonus: Other Classical Models
+(These show up in interviews, older papers, or special use-cases)
+
+✅ Linear Discriminant Analysis (LDA) as a classifier
+
+✅ Quadratic Discriminant Analysis (QDA)
+
+✅ Isotonic Regression
+
+✅ HMM (Hidden Markov Models) – especially for sequence modeling
+
+✅ Kalman Filters (for time-series prediction, control systems)
