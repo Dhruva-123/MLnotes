@@ -52,6 +52,10 @@ class DecisionTree:
         num_samples = dataset.shape[0]
         num_samples_left = left.shape[0]
         num_samples_right = right.shape[0]
+        left = np.atleast_2d(left)
+        right = np.atleast_2d(right)
+        if left.shape[1] == 0 or right.shape[1] == 0:
+            return 0  # skip this split candidate
         if mode == "entropy":
             info_gain = self.entropy(dataset[: , -1]) - (num_samples_left/num_samples)*self.entropy(left[: , -1]) - (num_samples_right/num_samples)*self.entropy(right[: , -1])
         if mode == "gini":
@@ -78,9 +82,7 @@ class DecisionTree:
         Y = list(Y)
         return max(Y , key = Y.count)
     
-    def accuracy(self, dataset):
-        X = dataset[: , :-1]
-        Y = dataset[: , -1]
+    def accuracy(self, X, Y):
         answers = self.predict(X, self.root)
         return np.mean(answers == Y)*100
     
@@ -101,4 +103,16 @@ class DecisionTree:
             return self.make_predict(x , root.right)
 
 
+from sklearn.datasets import load_iris
+from sklearn.model_selection import StratifiedKFold
+data = load_iris()
+X = data.data
+Y = data.target
+kf = StratifiedKFold(shuffle = True, n_splits = 4 , random_state = 42)
+for train, test in kf.split(X , Y):
+    X_train , X_test = X[train] , X[test]
+    Y_train , Y_test = Y[train] , Y[test]
+DT = DecisionTree(min_samples = 4, max_depth = 10)
+DT.fit(X_train, Y_train)
+print(DT.accuracy(X_test, Y_test))
 
