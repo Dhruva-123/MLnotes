@@ -23,6 +23,14 @@ class Regression:
                     dw += self.r*(2*self.lam*self.w_[1:]) + (1-self.r)*self.lam*np.sign(self.w_[1:])
             self.w_[1:] -= self.eta*dw
             self.w_[0] -= self.eta*db
+    
+    def Direct_fit(self, X, Y):
+    # Add intercept term
+        X_b = np.c_[np.ones((X.shape[0], 1)), X]  # adds a new column in X for the intercept 
+        self.w_ = np.linalg.inv(X_b.T @ X_b) @ X_b.T @ Y #This is the formula for weights
+        #This is the best weights you can imagine but this is a shit ton of computational power wasted. So, here we go, This is not done in the industry but it's great to know
+        
+
 
     def predict(self, X):
         return np.dot(X, self.w_[1:]) + self.w_[0]
