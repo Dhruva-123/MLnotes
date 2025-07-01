@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KNN.md",
+                "file": "Models/KNN.md",
                 "mode": "source",
                 "source": false
               },
@@ -172,7 +172,7 @@
   },
   "active": "ac650d44687cfd25",
   "lastOpenFiles": [
-    "KNN.md",
+    "Models/KNN.md",
     "Models/Linear Regression.md",
     "Models/Random Forests.md",
     "Models/DecisionTreeRegression.py",
