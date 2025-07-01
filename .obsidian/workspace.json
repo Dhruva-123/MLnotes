@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4a3862ea026c10ce",
+            "id": "ac650d44687cfd25",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Models/Linear Regression.md",
+                "file": "KNN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linear Regression"
-            }
-          },
-          {
-            "id": "eadc961cbd619b8e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Models/Random Forests.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Random Forests"
+              "title": "KNN"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -185,8 +170,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "eadc961cbd619b8e",
+  "active": "ac650d44687cfd25",
   "lastOpenFiles": [
+    "KNN.md",
     "Models/Linear Regression.md",
     "Models/Random Forests.md",
     "Models/DecisionTreeRegression.py",
