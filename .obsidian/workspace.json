@@ -11,10 +11,14 @@
             "id": "ac650d44687cfd25",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Models/notes/Naive Bayes.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Naive Bayes"
             }
           }
         ]
@@ -168,6 +172,7 @@
   },
   "active": "ac650d44687cfd25",
   "lastOpenFiles": [
+    "Models/notes/Naive Bayes.md",
     "Models/KNN.md",
     "Models/Linear Regression.md",
     "Models/Random Forests.md",
