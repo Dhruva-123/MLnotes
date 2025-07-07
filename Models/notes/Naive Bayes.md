@@ -44,11 +44,11 @@ This drastically simplifies likelihood estimation.
 
 ### 🔸 Probability vs Likelihood
 
-|Term|Meaning|In Naive Bayes|
-|---|---|---|
-|**Probability**|P(y|x) — Posterior|
-|**Likelihood**|P(x|y) — Treat data as fixed, class as variable|
-|Bayes Rule flips likelihood into probability|||
+| Term                                         | Meaning | In Naive Bayes                              |
+| -------------------------------------------- | ------- | ------------------------------------------- |
+| **Probability**                              | P(y     | x) — Posterior                              |
+| **Likelihood**                               | P(x     | y) — Treat data as fixed, class as variable |
+| Bayes Rule flips likelihood into probability |         |                                             |
 
 ---
 
