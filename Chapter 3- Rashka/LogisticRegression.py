@@ -29,4 +29,3 @@ class LogisticRegression:
     
     def accuracy(self, X, Y):
         return np.mean(self.predict(X) == Y)*100
-    
