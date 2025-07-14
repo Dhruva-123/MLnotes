@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Models/notes/Gradient Boosting.md",
+                "file": "Models/notes/Ensemble Models.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gradient Boosting"
+              "title": "Ensemble Models"
             }
           }
         ]
@@ -172,7 +172,7 @@
   },
   "active": "767c23818d07eefe",
   "lastOpenFiles": [
-    "Models/notes/Gradient Boosting.md",
+    "Models/notes/Ensemble Models.md",
     "LEETCODE QUESTIONS FOR REVISION.md",
     "Models/notes/Naive Bayes.md",
     "Models/KNN.md",
