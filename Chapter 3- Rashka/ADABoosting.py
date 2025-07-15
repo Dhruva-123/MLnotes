@@ -112,18 +112,22 @@ class ADABoosting:
     def fit(self, X , y):
         n_samples = X.shape[0]
         weights = np.ones(n_samples)/n_samples
+        weights = weights.ravel()
         for _ in range(self.n_estimators):
             shuffled_indicies = np.random.choice(n_samples , size = n_samples , p = weights)
             X_ = X[shuffled_indicies]
             y_ = y[shuffled_indicies]
             model = DecisionTree(max_depth = 1, min_samples = 1)
             model.fit(X_, y_)
-            y_pred = np.array([model.predict(X, root = model.root)])
+            y_pred = np.array(model.predict(X, root = model.root))
             incorrect = (y_pred != y).astype(int)
+            incorrect = incorrect.ravel()
             error = np.dot(weights, incorrect)/np.sum(weights)
             ESP = 1e-10
-            alpha = 0.5*np.log((1 - error)/error + ESP)
-            weights = weights*np.exp(-y*y_pred*alpha)/np.sum(weights)
+            alpha = 0.5*np.log((1 - error + ESP)/error + ESP)
+            weights = weights*np.exp(-y*y_pred*alpha)
+            weights /= np.sum(weights)
+            weights = weights.ravel()
             self.alphas.append(alpha)
             self.models.append(model)
 
@@ -134,5 +138,22 @@ class ADABoosting:
         return np.where(prediction > 0 , 1 , 0)
 
 from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import StratifiedKFold
 Data = load_breast_cancer()
-print(Data.data)
+X = Data.data
+y = Data.target
+SKF = StratifiedKFold(n_splits = 5)
+for train, test in SKF.split(X , y):
+    X_train = X[train]
+    y_train = y[train]
+    X_test = X[test]
+    y_test = y[test]
+
+modelA = ADABoosting(n_estimators = 100)
+modelA.fit(X_train, y_train)
+print(f"ADABoosting : {np.mean(modelA.predict(X_test) == y_test)*100}")
+
+modelB = DecisionTree(max_depth = 10, min_samples = 4)
+modelB.fit(X_train, y_train)
+print(f"Normal Tree : {np.mean(modelB.predict(X_test) == y_test)*100}")
+
