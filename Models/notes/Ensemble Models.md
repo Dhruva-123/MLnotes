@@ -1,0 +1,2 @@
+- A dataset is also called a sample.
+- The learned model is called a hypothesis

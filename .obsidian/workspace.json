@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "829166e70fc48167",
+        "id": "2e66478751675304",
         "type": "tabs",
         "children": [
           {
-            "id": "767c23818d07eefe",
+            "id": "5b6942a0886dedcc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
+                "file": "Models/notes/Ensemble Models.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Welcome"
+              "title": "Backlinks for Ensemble Models"
             }
           },
           {
@@ -143,20 +143,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
+                "file": "Models/notes/Ensemble Models.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline of Ensemble Models"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -170,7 +171,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "767c23818d07eefe",
+  "active": "5b6942a0886dedcc",
   "lastOpenFiles": [
     "Models/notes/Ensemble Models.md",
     "LEETCODE QUESTIONS FOR REVISION.md",
