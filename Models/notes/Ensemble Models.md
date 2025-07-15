@@ -1,2 +1,3 @@
 - A dataset is also called a sample.
 - The learned model is called a hypothesis
+- Tree pruning is of 2 types: pre-pruing and post-pruing. More on that later.
