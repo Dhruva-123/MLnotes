@@ -17,7 +17,7 @@ class DecisionTree:
         X = dataset[: , :-1]
         Y = dataset[: , -1]
         num_samples, num_features = X.shape
-        if num_samples >= self.min_samples and depth <= self.max_depth:
+        if num_samples > self.min_samples and depth < self.max_depth:
             best_split = self.best_split(dataset, num_samples, num_features)
             if best_split and best_split["info_gain"] > 0:
                 left_tree = self.Tree(best_split["left"], depth + 1)
@@ -30,8 +30,9 @@ class DecisionTree:
         best_split = {}
         max_info_gain = -float('inf')
         for feature in range(num_features):
-            for sample in range(num_samples):
-                threshold = dataset[sample, feature]
+            thresholds = np.unique(dataset[:, feature])
+            thresholds = np.random.choice(thresholds, size = min(10 , len(thresholds)), replace = False)
+            for threshold in thresholds:
                 left , right = self.split(dataset , threshold, feature)
                 info_gain = self.info_gain(dataset, left, right)
                 if info_gain > max_info_gain:
@@ -44,8 +45,9 @@ class DecisionTree:
         return best_split
     
     def split(self, dataset, threshold, feature):
-        left = np.array([x for x in dataset if  x[feature] <= threshold])
-        right = np.array([x for x in dataset  if x[feature] > threshold])
+        mask = dataset[: , feature] <= threshold
+        left = dataset[mask]
+        right = dataset[~mask]
         return left, right
     
     def info_gain(self, dataset, left, right, mode = "entropy"):
@@ -91,7 +93,9 @@ class DecisionTree:
         self.root = self.Tree(dataset=dataset)
     
     def predict(self, X, root = None):
-        predictions = [self.make_predict(x, root) for x in X]
+        if root == None:
+            root = self.root
+        predictions = np.array([self.make_predict(x, root) for x in X])
         return predictions
     
     def make_predict(self, x, root):
@@ -102,31 +106,37 @@ class DecisionTree:
         else:
             return self.make_predict(x , root.right)
 
-
+from sklearn.tree import DecisionTreeClassifier
 class ADABoosting:
     def __init__(self, n_estimators):
         self.n_estimators = n_estimators
         self.alphas = []
         self.models = []
+        self.errors = []
     
     def fit(self, X , y):
+        y = np.where(y == 0, -1, 1)
         n_samples = X.shape[0]
         weights = np.ones(n_samples)/n_samples
-        weights = weights.ravel()
         for _ in range(self.n_estimators):
-            shuffled_indicies = np.random.choice(n_samples , size = n_samples , p = weights)
-            X_ = X[shuffled_indicies]
-            y_ = y[shuffled_indicies]
-            model = DecisionTree(max_depth = 1, min_samples = 1)
-            model.fit(X_, y_)
-            y_pred = np.array(model.predict(X, root = model.root))
+            #shuffled_indicies = np.random.choice(n_samples , size = n_samples , p = weights)
+            #X_ = X[shuffled_indicies]
+            #y_ = y[shuffled_indicies]
+            model = DecisionTreeClassifier(max_depth = 1)
+            model.fit(X, y, sample_weight = weights)
+            y_pred = np.array(model.predict(X))
             incorrect = (y_pred != y).astype(int)
             incorrect = incorrect.ravel()
             error = np.dot(weights, incorrect)/np.sum(weights)
-            ESP = 1e-10
-            alpha = 0.5*np.log((1 - error + ESP)/error + ESP)
-            weights = weights*np.exp(-y*y_pred*alpha)
-            weights /= np.sum(weights)
+            error = np.clip(error, 1e-10, 1 - 1e-10)  # Avoid extreme values
+            if error > 0.5:
+                print(f"You've got a bad learner... flipping sign")
+                y_pred = -1*y_pred
+            self.errors.append(error)
+            alpha = 0.5*np.log((1 - error)/error)
+            alpha = np.clip(alpha, 0 , 2)
+            weights *= np.exp(-y*y_pred*alpha)
+            weights /= np.sum(weights)               
             weights = weights.ravel()
             self.alphas.append(alpha)
             self.models.append(model)
@@ -134,26 +144,37 @@ class ADABoosting:
     def predict(self, X):
         prediction = np.zeros((X.shape[0]))
         for alpha, model in zip(self.alphas , self.models):
-            prediction += alpha*np.where(np.array([model.predict(X)]) == 0, -1, 1)
+            prediction += alpha*np.array(model.predict(X))
         return np.where(prediction > 0 , 1 , 0)
 
-from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import StratifiedKFold
-Data = load_breast_cancer()
-X = Data.data
-y = Data.target
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_moons
+
+X, y = make_moons(n_samples=2000, noise=0.5)
+
 SKF = StratifiedKFold(n_splits = 5)
 for train, test in SKF.split(X , y):
     X_train = X[train]
     y_train = y[train]
     X_test = X[test]
     y_test = y[test]
-
-modelA = ADABoosting(n_estimators = 100)
+iterations = 1000
+modelA = ADABoosting(n_estimators = iterations)
 modelA.fit(X_train, y_train)
+x_axis = np.array([i for i in range(1, iterations + 1)])
+y_axis = np.array(modelA.errors)
+plt.plot(x_axis, y_axis)
+plt.xlabel("interation count")
+plt.ylabel("error")
+plt.show()
 print(f"ADABoosting : {np.mean(modelA.predict(X_test) == y_test)*100}")
 
-modelB = DecisionTree(max_depth = 10, min_samples = 4)
+modelB = DecisionTreeClassifier(max_depth = 10, min_samples_split = 4)
 modelB.fit(X_train, y_train)
-print(f"Normal Tree : {np.mean(modelB.predict(X_test) == y_test)*100}")
+print(f"SKlearn Tree : {np.mean(modelB.predict(X_test) == y_test)*100}")
+
+modelC = DecisionTree(max_depth = 10 , min_samples = 4)
+modelC.fit(X_train , y_train)
+print(f"My Tree: {np.mean(modelC.predict(X_test) == y_test)*100}")
 
