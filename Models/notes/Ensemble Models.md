@@ -292,7 +292,7 @@ You already implemented this — ✅ excellent move.
 
 AdaBoost builds:
 
-F(x)=∑tαtht(x)F(x) = \sum_t \alpha_t h_t(x) F(x)=t∑​αt​ht​(x)
+$$F(x)=∑tαtht(x)F(x) = \sum_t \alpha_t h_t(x) F(x)=t∑​αt​ht​(x)$$
 
 This is a **forward stagewise additive model** (FSAM)
 
