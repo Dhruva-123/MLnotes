@@ -36,4 +36,12 @@ A few more points to note:
 2. We also maintain a min_sample variable. This makes sure that we don't split a given node further even if the sample size is less than a particular value. This is edge case management.
 3. This might be the most important point here, If information gain is zero, then,  we are splitting a node that is already pure. We don't want that.
 
-**Decision Trees for Regression:**
+
+
+# Descision Trees 
+
+- Random Forests built with a good Descision Tree can fit complex datasets easily, but, ofc, over fitting is a major risk
+- We use regularization to stop over fitting. This can include a lot of different things:
+- The Algorithm of Descision Trees are is called CART (Classification and Regression Trees). It's that recursive splitting algorithm.
+- In tree splitting, if the min_samples is too low, the tree won't be regularized properly and that could lead to serious overfitting. It starts to pick up on the noise in the data and not the useful matter. So, with min_samples, bias increases and variance decreases.
+- Random Forests improve the overall performance of a Decision Tree style because, They tend to reduce overfitting and hence variance.
