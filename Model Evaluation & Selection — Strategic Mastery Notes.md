@@ -61,7 +61,45 @@ Code:
         print("Train groups:", df.iloc[train_idx]['subject_id'].unique())
         print("Test groups:",  df.iloc[test_idx]['subject_id'].unique()) 
 
+TimeSeriesSplits:
 
+Now, this one must always be used for TimeSeries based models. What this does is, it takes data in a series of time and over each iteration of the for loop we are about to establish, it trains the model on  past events and tests them on the current events. That is easy enough to explain, Here is an illustrated example on how it works:
+
+from sklearn.model_selection import TimeSeriesSplit
+import numpy as np
+
+X = np.arange(10).reshape(-1, 1)   # features: [0], [1], ..., [9]
+y = np.arange(10)                 # targets:   0, 1, ..., 9
+
+tscv = TimeSeriesSplit(n_splits=3)
+
+for fold, (train_idx, val_idx) in enumerate(tscv.split(X)):
+    print(f"Fold {fold + 1}")
+    print("Train indices:", train_idx)
+    print("Val indices:  ", val_idx)
+    print("---")
+
+
+Output:
+
+
+Fold 1
+Train indices: [0 1 2 3]
+Val indices:   [4 5]
+
+Fold 2
+Train indices: [0 1 2 3 4 5]
+Val indices:   [6 7]
+
+Fold 3
+Train indices: [0 1 2 3 4 5 6 7]
+Val indices:   [8 9]
+
+
+If you look at the example carefully, youll understand it very well.
+also, a few points to note:
+The n_splits here means the number of times we are running the loop. not the ratio in which we are splitting train test. The test example number is fixed here;
+test_size = total_no_of_samples/(n_splits + 1)
 
 
 
