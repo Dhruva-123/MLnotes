@@ -46,6 +46,21 @@ And our KFold splits the data like this, train = 1,3,5; test = 2,4,6
 in this, the major problem is, if we train a model on this data and use the test for test, The model clearly learns all about User 1 and User 2 and User 3 before hand, so the results will be very easily over stated. But in groupKFold, what ends up happening is, the computer will split the data based on groups of User ID and then we train and test. This new train and test looks like this;
 train = 1,2,3,4 ; test = 5,6. The computer hasn't seen group 3 yet, now if we test it on that, itll be more valid.
 
+Code:
+     Here is how we import it:
+    
+    from sklearn.model_selection import GroupKFold
+    
+	 Here is how we use it:
+         
+    X = df[['feature1']].values
+    y = df['target'].values
+    groups = df['subject_id'].values
+    gkf = GroupKFold(n_splits=3)
+    for train_idx, test_idx in gkf.split(X, y, groups=groups):
+        print("Train groups:", df.iloc[train_idx]['subject_id'].unique())
+        print("Test groups:",  df.iloc[test_idx]['subject_id'].unique()) 
+
 
 
 
