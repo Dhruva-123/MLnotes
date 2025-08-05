@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "2e66478751675304",
+        "id": "51a317cf262e76df",
         "type": "tabs",
         "children": [
           {
-            "id": "5b6942a0886dedcc",
+            "id": "580b6569844cfd9e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Models/notes/Ensemble Models.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Ensemble Models"
-            }
-          },
-          {
-            "id": "390235e1e5e115a1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Model Evaluation & Selection — Strategic Mastery Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Model Evaluation & Selection — Strategic Mastery Notes"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -186,10 +167,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "390235e1e5e115a1",
+  "active": "580b6569844cfd9e",
   "lastOpenFiles": [
-    "Model Evaluation & Selection — Strategic Mastery Notes.md",
     "Models/notes/Ensemble Models.md",
+    "Model Evaluation and Selection.md",
     "Models/notes/Chapter 3 - Rashka (Part 2).md",
     "Models/Code/DecisionTree_pruning.py",
     "Chapter 3- Rashka/ADABoosting.py",
