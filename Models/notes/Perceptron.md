@@ -33,7 +33,7 @@ $\Delta w_3 = \eta \left(y^{(i)} - \hat{y}^{(i)}\right) x_3^{(i)}$
 and so on...
 Here, $\eta$ is what we call a hyperparameter. We set it during the perparation of this entire model. For different hyperparameters, we get different outputs. If $\eta$ is too small, the model's speed sucks. If it is too high, the model suffers overshooting and might never converge ever. So the selection must be clever.
 
-This model is only usable if the two classes that we are trying to seperate are linearly seperable and doesn't work if the given data is not seperable.
+This model is only usable if the two classes that we are tr/ying to seperate are linearly seperable and doesn't work if the given data is not seperable.
 
 ![[Pasted image 20250614151732.png]]
 
