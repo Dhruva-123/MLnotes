@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "09e1d28cbde82535",
+        "id": "c1dc2d9aa86b0ef4",
         "type": "tabs",
         "children": [
           {
-            "id": "abd9f856441133ad",
+            "id": "845ed162fd7a2ac5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Models/notes/Perceptron.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Perceptron"
             }
           }
         ]
@@ -167,11 +171,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "abd9f856441133ad",
+  "active": "845ed162fd7a2ac5",
   "lastOpenFiles": [
+    "Models/notes/Decision Trees Info.md",
+    "Models/notes/Logistic Regression and SVM.md",
+    "Models/notes/Perceptron.md",
     "Models/notes/Ensemble Models.md",
     "Model Evaluation and Selection.md",
-    "Models/notes/Chapter 3 - Rashka (Part 2).md",
     "Models/Code/DecisionTree_pruning.py",
     "Chapter 3- Rashka/ADABoosting.py",
     "LEETCODE QUESTIONS FOR REVISION.md",

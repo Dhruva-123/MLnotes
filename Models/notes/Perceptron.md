@@ -11,7 +11,7 @@ If the value of z > $\theta$ where $\theta$ is a defined threshold , we classify
 since $z = x1w1 + x2w2 + x3w3...$ and z > $\theta$ we change the equation like so, by adding another term, $w0x0$ with $x0 = 1$ and $w0$ = -$\theta$ . Now, the new equation is  $z = x0w0 + x1w1 + x2w2 + x3w3...$ 
 and we can just check if $z$ > 0. simple.
 
-That checking is done my the function $\Phi(z)$ like so:
+That checking is done by the function $\Phi(z)$ like so:
 𝜙(𝑧) = { 1 if 𝑧 ≥ 𝜃 else -1 } 
 Here, $w0$ = -$\theta$ is called the bias unit.
 
