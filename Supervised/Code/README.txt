@@ -1,0 +1,1 @@
+Each of the codes you will find here are extracted from a merge of research papers, my own intuition, and some help of AI. Note that these implementations might not be the most optimal in terms of performance, but they do give you a general idea of how the whole model works.
