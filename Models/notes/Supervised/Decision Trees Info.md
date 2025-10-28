@@ -47,8 +47,8 @@ A few more points to note:
 - Random Forests improve the overall performance of a Decision Tree style because, They tend to reduce overfitting and hence variance.
 ## Limitations:
 
-- Apperently, finding the most optmial tree configurations for a given dataset is an NP-complete problem. IDK what an NP-complete problem is. It is something along the lines of "solving it is hard, but checking the answer is easy". This is one of the limitations of a decision tree.
-- Trees suck at rotation based structures. Say we have a dataset and a tree sucks at classifying it. Then, when we rotate the dataset, suddenly, the tree is perfect. This sort of dependancy of the orientation of the data is a key weakness in trees.
+- Apparently, finding the most optimal tree configurations for a given dataset is an NP-complete problem. IDK what an NP-complete problem is. It is something along the lines of "solving it is hard, but checking the answer is easy". This is one of the limitations of a decision tree.
+- Trees suck at rotation based structures. Say we have a dataset and a tree sucks at classifying it. Then, when we rotate the dataset, suddenly, the tree is perfect. This sort of dependency of the orientation of the data is a key weakness in trees.
 
 ## Good to know:
 

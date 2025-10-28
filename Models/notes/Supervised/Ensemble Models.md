@@ -3,8 +3,7 @@
 - Tree pruning is of 2 types: pre-pruing and post-pruing. More on that later.
 - Ensemble methods learn multiple algorithms to attain the end product. Not relying on a single model
 
-# AdaBoost: Deep Theory Notes  
-**Author:** Rahul Dhruva  
+# AdaBoost: Deep Theory Notes   
 
 ---
 
