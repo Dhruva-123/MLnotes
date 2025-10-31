@@ -15,4 +15,9 @@ That should be enough theory for a python implementation of our own.
 
 
 
+There is another variation of this algorithm and that is called k-means ++. It does the exact same thing as k-means, but here, the initialization is different. Here the centroids aren't initialized as a random point. But here, only the first centroid is taken randomly. The rest are taken via a probabilistic approach. This leads to faster convergence rates. But generally, this is a bit more computationally heavy. This is in general far more sophisticated and I assume the golden standard in the industry. So we will also attempt to implement that. 
+
+
+We noticed that both our k-means and k-means++ worked well with 200 iterations. But as the iterations slowed down, k-means++ started to take over the process. Eventually, at 25 iterations, k-means made wrong classifications while k-means++ didn't. So, for low iteration rates, k-means++ is the way to go. If you have high iterations or a casual theme, you can go with k-means.
+
 
