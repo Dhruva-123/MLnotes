@@ -1,0 +1,1 @@
+This folder consists of all the notes of deep learning I have developed myself through my study. 
